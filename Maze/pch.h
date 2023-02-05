@@ -10,3 +10,30 @@
 
 using namespace std;
 
+// position 구조체 좌표관리용
+struct Pos
+{
+	bool operator == (Pos& other)
+	{
+		return y == other.y && x == other.x;
+	}
+
+	bool operator != (Pos& other)
+	{
+		return !(*this == other);
+	}
+
+	int32 x = 0;
+	int32 y = 0;
+};
+
+enum Dir
+{
+	// 시계방향 순서
+	DIR_UP = 0,
+	DIR_LEFT = 1,
+	DIR_DOWN = 2,
+	DIR_RIGHT = 3,
+
+	DIR_COUNT = 4,
+};
