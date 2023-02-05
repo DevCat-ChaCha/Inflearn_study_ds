@@ -2,13 +2,23 @@
 #include <iostream>
 
 #include "ConsoleHelper.h"
+#include "Board.h"
+#include "Player.h"
 
+Board board;
+Player player;
 
 // github tokens
 //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
 
 int main()
 {
+	// 랜덤 시드 설정
+	::srand(static_cast<unsigned>(time(nullptr)));
+
+	board.initialize(25, &player);
+	player.initialize(&board);
+
 	uint64 lastTick = 0;
 	
 	while (true)
@@ -25,26 +35,9 @@ int main()
 
 
 		// 로직
-
+		player.update(deltaTick);
 
 		// 렌더링
-
-
-
-
-		ConsoleHelper::setCursorPosition(0, 0);
-		ConsoleHelper::setConsoleCursor(false);
-		ConsoleHelper::setCursorColor(ConsoleColor::RED);
-
-		const char* TILE = "■";
-		for (int32 x = 0; x < 25; x++)
-		{
-			for (int32 y = 0; y < 25; y++)
-			{
-				cout << TILE;
-			}
-
-			cout << endl;
-		}
+		board.render();
 	}
 }

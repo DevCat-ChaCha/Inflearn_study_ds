@@ -23,6 +23,23 @@ struct Pos
 		return !(*this == other);
 	}
 
+	Pos operator+(Pos& other)
+	{
+		Pos ret;
+		ret.x = x + other.x;
+		ret.y = y + other.y;
+
+		return ret;
+	}
+
+	Pos& operator+=(Pos& other)
+	{
+		x += other.x;
+		y += other.y;
+
+		return *this;
+	}
+
 	int32 x = 0;
 	int32 y = 0;
 };
