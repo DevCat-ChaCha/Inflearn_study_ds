@@ -22,7 +22,7 @@
       <Filter>Board</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>Main</Filter>
+      <Filter>Board</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -39,7 +39,7 @@
       <Filter>Board</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>Main</Filter>
+      <Filter>Board</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -21,6 +21,95 @@ void Board::initialize(int32 size, Player* player)
 	// 맵 생성
 	generateMap();
 }
+//
+//
+//void Board::render()
+//{
+//	ConsoleHelper::setCursorPosition(0, 0);
+//	ConsoleHelper::setConsoleCursor(false);
+//	ConsoleHelper::setCursorColor(ConsoleColor::RED);
+//
+//	for (int32 y = 0; y < 25; y++)
+//	{
+//		for (int32 x = 0; x < 25; x++)
+//		{
+//			ConsoleColor color = getTileColor(Pos{ y,x });
+//			ConsoleHelper::setCursorColor(color);
+//
+//			cout << TILE;
+//		}
+//		cout << endl;
+//	}
+//}
+//
+//// Binary Tree 미로 생성 알고리즘
+////
+//
+//void Board::generateMap()
+//{
+//	for (int y = 0; y < _size; y++)
+//	{
+//		for (int x = 0; x < _size; x++)
+//		{
+//			if (x % 2 == 0 || y % 2 == 0)
+//			{
+//				_tile[y][x] = TileType::WALL;
+//			}
+//			else
+//			{
+//				_tile[y][x] = TileType::EMPTY;
+//			}
+//		}
+//	}
+//
+//	for (int y = 0; y < _size; y++)
+//	{
+//		for (int x = 0; x < _size; x++)
+//		{
+//			if (x % 2 == 0 || y % 2 == 0)
+//			{
+//				continue;
+//			}
+//
+//			if (x == _size - 2 && y == _size - 2)
+//			{
+//				//_tile[x][y] = TileType::EXIT;
+//				continue;
+//			}
+//
+//			// 맨 아래에 도달했을 땐 오른쪽으로만 가야해
+//			if (y == _size - 2)
+//			{
+//				_tile[y][x + 1] = TileType::EMPTY;
+//				continue;
+//			}
+//
+//			// 맨 오른쪽에 도달했을 땐 아래로만 가야해
+//			if (x == _size - 2)
+//			{
+//				_tile[y + 1][x] = TileType::EMPTY;
+//				continue;
+//			}
+//
+//			// 오른쪽이나 아래쪽으로 뚫리도록 수정
+//			const int32 randValue = rand() % 2;
+//			if (randValue == 0)
+//			{
+//				_tile[y][x + 1] = TileType::EMPTY;
+//			}
+//			else
+//			{
+//				_tile[y + 1][x] = TileType::EMPTY;
+//			}
+//
+//			if (getEnterPos().x == x && getEnterPos().y == y)
+//			{
+//				_tile[x][y] = TileType::ENTER;
+//			}
+//		}
+//	}
+//}
+
 
 void Board::render()
 {
@@ -50,11 +139,7 @@ void Board::generateMap()
 	{
 		for (int y = 0; y < _size; y++)
 		{
-			if (x == 0 || y == 0 || x == _size - 1 || y == _size - 1)
-			{
-				_tile[x][y] = TileType::WALL;
-			}
-			else if(x % 2 == 0 || y % 2 == 0)
+			if(x % 2 == 0 || y % 2 == 0)
 			{
 				_tile[x][y] = TileType::WALL;
 			}
