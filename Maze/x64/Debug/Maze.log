@@ -1,2 +1,3 @@
-﻿  Maze.cpp
-  Maze.vcxproj -> D:\data_algorithm_study\algorithm\x64\Debug\Maze.exe
+﻿  Player.cpp
+D:\data_algorithm_study\Maze\Player.cpp(78): warning C4715: 'Player::canGo': 모든 제어 경로에서 값을 반환하지는 않습니다.
+  Maze.vcxproj -> D:\data_algorithm_study\Maze\x64\Debug\Maze.exe
